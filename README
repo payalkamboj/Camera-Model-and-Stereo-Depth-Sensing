@@ -1,0 +1,13 @@
+Throughout this project, we will use the stereo camera. All images provided by the instructors are RGB images in 640 * 480. The baseline length of this stereo camera is roughly 62 mm.
+
+Task 1: Pinhole camera model and calibration: Given a camera, the camera intrinsic parameters are unknown but can be calculated with known 3D-to-2D point correspondences (i.e., camera calibration). In this task, we have calibrated the camera using a few images.
+
+Task 2: Stereo calibration and rectification: Given a stereo camera system, there is a rotation and translation between the two camera reference frames, i.e., the (R, t), from the left camera to the right camera, which is usually unknown. Hence, we have calibrated the stereo camera system with known 3D-to-2D point correspondences to calculate the rotation and translation. This step is called stereo calibration.
+Usually, for a pair of views obtained from two shots of a moving camera, their principal axes are not perfectly aligned. Hence, we would like to rotate the two views a little bit so that their principal axes are in parallel and their pixels are in row correspondence, i.e., the projected 2D points of a 3D point P on the left camera image and the right camera image are in the same row. This step is called stereo rectification. Sometimes it is needed even for a stereo camera system because the camera rig installation may not be perfect. 
+
+Task 3: Sparse depth triangulation: Based on the epipolar geometry, given two views with known reference frame rotation and translation relationship, and a pair of feature points on the two views, the 3D point corresponding to the feature points can be triangulated.
+
+Task 4: Dense depth triangulation: Besides sparse depth triangulation using a few feature points, in many cases, we would like to obtain the depth of every pixel using two views with known rotation and translation. This is typically done using a rectified stereo camera system since searching the matching feature on the other view is efficient. Such matching is done for each pixel using a block surrounding the pixel, and the output is a disparity map of each pixel.
+
+
+
